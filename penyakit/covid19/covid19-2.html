@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deteksi Dini Covid-19</title>
+    <!-- CSS YANG DI GUNAKAN -->
+    <style>
+      .font_judul {
+        font-weight: 600;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+      }
+      .font_utama {
+        font-weight: 400;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .font_peringatan {
+        /*font-weight: 400;*/
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 11px;
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+      }
+      .bawah_peringatan {
+        top: 82%;
+        left: 7%;
+        position: absolute;
+      }
+      .tengah_teks {
+        text-align: center;
+      }
+      .tengah_kotak {
+        left: 35%;
+        position: absolute;
+      }
+      .tengah_suspek {
+        top: 20%;
+        left: 30%;
+        position: absolute;
+      }
+      .kotak_judul {
+        width: 400px;
+        margin-top: -5.5%;
+        height: 80px;
+        border-radius: 10px;
+        background: rgb(255, 153, 250);
+      }
+      .kotak_selamat_datang {
+        top: 11%;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_utama {
+        top: 19%;
+        width: 400px;
+        height: 480px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_suspek {
+        top: 10%;
+        width: 160px;
+        height: 39px;
+        border-radius: 10px;
+        background: rgb(253, 255, 146);
+      }
+      .kotak_positif {
+        top: 10%;
+        width: 160px;
+        height: 39px;
+        border-radius: 10px;
+        background: rgb(255, 141, 141);
+      }
+      .kotak_negatif {
+        top: 10%;
+        width: 160px;
+        height: 39px;
+        border-radius: 10px;
+        background: rgb(69, 250, 138);
+      }
+      .kotak_peringatan {
+        width: 350px;
+        height: 57px;
+        border-radius: 10px;
+        background: rgb(253, 255, 146);
+      }
+      .button_start {
+        top: 55%;
+        left: 40%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_yes_covid {
+        top: 77%;
+        left: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_no_covid {
+        top: 77%;
+        right: 27%;
+        position: absolute;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <br><br>
+    <!-- KOTAK SELAMAT DATANG -->
+    <div id="form_selamat_datang" style="display: block;">
+      <div class="kotak_selamat_datang tengah_kotak" >
+        <br><br><br><br><br><br><br><br>
+        <p class="font_selamat_datang tengah_teks">Selamat Datang Di Sistem Deteksi Dini Covid-19</p>
+        <button id="selamat_datang" class="button_start font_utama" type="button" onclick="pil_selamat_datang()" value="start">Start</button>
+      </div>
+    </div>
+    <!--Tampil Judul-->
+    <div id="judul" class="tengah_kotak" style="display: none;">
+      <div class="kotak_judul tengah_teks">
+        <br>
+        <div class="font_judul">Deteksi Dini Covid-19</div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <!--Kotak Pernyataan-->
+    <div id="kotak_utama" class="tengah_kotak kotak_utama" style="display: none;">
+      <!--KOTAK PERINGATAN -->
+      <div id="kotak_peringatan" class="bawah_peringatan" style="display: none;">
+      <div class="kotak_peringatan tengah_teks">
+        <p class="font_peringatan">Jika anda pernah kontak dengan kasus probable/konvirmasi COVID-19 dan anda mempunyai gejala atau tidak bergejala, segera lakukan KARANTINA MANDIRI dan SEGERA MELAPOR ke Fasilitas Pelayanan atau Dinas Kesehatan setempat.</p>
+      </div>
+      </div>
+      <!--FORM 1-->
+      <div id="form1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Apakah Anda Mengalami :</p>
+        <ol>
+          <li class="font_utama">Demam &ge; 38&ordm; C dan batuk</li>
+          <li class="font_utama">Terdapat 3 atau lebih gejalan berikut :</li>
+          <ul>
+            <li class="font_utama">Demam &ge; 38&ordm; C</li>
+            <li class="font_utama">Batuk</li>
+            <li class="font_utama">Kelelahan(fortigue)</li>
+            <li class="font_utama">Sakit kepala</li>
+            <li class="font_utama">Mylagia</li>
+            <li class="font_utama">Nyeri tenggorokan</li>
+            <li class="font_utama">Pilek/hidung tersumbat</li>
+            <li class="font_utama">Sesak nafas</li>
+            <li class="font_utama">Mual/muntah</li>
+            <li class="font_utama">Diare</li>
+            <li class="font_utama">Penurunan kesadaran</li>
+          </ul>
+        </ol>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil2_1()" id="ya1" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_2()" id="tidak1" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_1-->
+      <div id="form2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Pada 14 Hari Terakhir :</p>
+        <ul>
+          <li class="font_utama">Tinggal atau bepergian di negara atau wilayah Indonesia dengan transmisi lokal</li>
+          <li class="font_utama">Tinggal atau bekerja di tempat berisiko (pengungsian,asrama, dll)</li>
+          <li class="font_utama">Bekerja di Fasyankes, melakukan investigasi, pemantauan kasus, dan kontak</li>
+        </ul>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil_suspek()" id="ya2_1" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_1_2()" id="tidak2_1" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_1_2-->
+      <div id="form2_1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Pesan Dari Kami :</p>
+        <p class="font_utama tengah_teks">Istirahat yang cukup dan periksakan diri ke Fasilitas Pelayanan Kesehatan untuk tata laksana lebih lanjut. Terimakasih telah melakukan deteksi dini Covid-19 :)</p>
+      </div>
+      <!--FORM 2_2-->
+      <div id="form2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Pada 14 Hari Terakhir :</p>
+        <ul>
+          <li class="font_utama">Tinggal atau bepergian di negara atau wilayah Indonesia dengan transmisi lokal</li>
+          <li class="font_utama">Tinggal atau bekerja di tempat berisiko (pengungsian,asrama, dll)</li>
+          <li class="font_utama">Bekerja di Fasyankes, melakukan investigasi, pemantauan kasus, dan kontak</li>
+        </ul>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil2_2_1()" id="ya2_2" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_2_2()" id="tidak2_2" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_2_1-->
+      <div id="form2_2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Yang Harus Anda Lakukan :</p>
+        <p class="font_utama tengah_teks">Lakukan monitoring kesehatan mandiri selama 14 hari. Jika sudah melakukan isolasi mandiri, silahkan klik tombol "Ya".</p>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil2_2_1_1()" id="ya2_2_1" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_2_1_2()" id="tidak2_2_1" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_2_1_1-->
+      <div id="form2_2_1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Apakah Muncul Gejala Seperti :</p>
+        <ol>
+          <li class="font_utama">Demam &ge; 38&ordm; C dan batuk</li>
+          <li class="font_utama">Terdapat 3 atau lebih gejalan berikut :</li>
+          <ul>
+            <li class="font_utama">Demam &ge; 38&ordm; C</li>
+            <li class="font_utama">Batuk</li>
+            <li class="font_utama">Kelelahan(fortigue)</li>
+            <li class="font_utama">Sakit kepala</li>
+            <li class="font_utama">Mylagia</li>
+            <li class="font_utama">Nyeri tenggorokan</li>
+            <li class="font_utama">Pilek/hidung tersumbat</li>
+            <li class="font_utama">Sesak nafas</li>
+            <li class="font_utama">Mual/muntah</li>
+            <li class="font_utama">Diare</li>
+            <li class="font_utama">Penurunan kesadaran</li>
+          </ul>
+        </ol>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil2_2_1_1_1()" id="ya2_2_1_1" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_2_1_1_2()" id="tidak2_2_1_1" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_2_1_1_1-->
+      <div id="form2_2_1_1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Apakah Anda Mengalami :</p>
+        <p class="font_utama tengah_teks">Ansomnia (hilangnya kemampuan indra penciuman) atau ageusia (hilangnya kemampuan indra perasa)</p>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil_suspek_2_2_1_1_1()" id="ya2_2_1_1_1" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil2_2_1_1_1_2()" id="tidak2_2_1_1_1" value="tidak">Tidak</button>
+      </div>
+      <!--FORM SUSPEK-->
+      <div id="form_suspek" style="display: none">
+        <br />
+        <div class="font_utama tengah_teks" style="font-weight: bold;">Anda Dinyatakan Sebagai :</div>
+        <div class="tengah_suspek kotak_suspek font_judul tengah_teks">SUSPEK</div>
+        <br /><br />
+        <p class="font_utama tengah_teks">Periksakan diri untuk dilakukan pengambilan spesimen dan tatalaksana lebih lanjut. Jika anda telah melakukan pemeriksaan SWAP atau lainnya maka silahkan klik "Ya" </p>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil_periksa()" id="ya_suspek" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil_layanan()" id="tidak_suspek" value="tidak">Tidak</button>
+      </div>
+      <!--FORM 2_2_2-->
+      <div id="form2_2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Pesan Dari Kami :</p>
+        <p class="font_utama tengah_teks">Selalu jaga kesehatan dan terapkan protokol kesehatan dalam beraktifitas. Terimakasih telah melakukan deteksi dini Covid-19 :)</p>
+      </div>
+      <!--FORM LAYANAN-->
+      <div id="form_layanan" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Pesan Dari Kami :</p>
+        <p class="font_utama tengah_teks">Terimakasih telah menggunakan layanan kami :)</p>
+      </div>
+      <!--FORM PERIKSA-->
+      <div id="form_periksa" style="display: none">
+        <br />
+        <div class="font_utama tengah_teks">Apakah hasil SWAP atau tes lain yang di lakukan 2x semua NEGATIF ?. Jika NEGATIF silahkan klik "Ya".</div>
+        <button class="font_utama button_yes_covid" type="button" onclick="pil_negatif()" id="ya_periksa" value="ya">Ya</button>
+        <button class="font_utama button_no_covid" type="button" onclick="pil_positif()" id="tidak_periksa" value="tidak">Tidak</button>
+        </div>
+        <!--FORM POSITIF-->
+      <div id="form_positif" style="display: none">
+        <br />
+        <div class="font_utama tengah_teks" style="font-weight: bold;">Anda Dinyatakan :</div>
+        <div class="tengah_suspek kotak_positif font_judul tengah_teks">POSITIF</div>
+        <br /><br />
+        <p class="font_judul tengah_teks">SEGERA! konsultasikan dengan petugas kesehatan setempat.</p>
+      </div>
+      <!--FORM NEGATIF-->
+      <div id="form_negatif" style="display: none">
+        <br />
+        <div class="font_utama tengah_teks" style="font-weight: bold;">Anda Dinyatakan :</div>
+        <div class="tengah_suspek kotak_negatif font_judul tengah_teks">NEGATIF</div>
+        <br /><br />
+        <p>
+            <ul class="font_utama">
+                <li>Selalu jaga kesehatan</li>
+                <li>Terapkan protokol kesehatan dalam beraktifitas</li>
+            </ul>
+        </p>
+      </div>
+    </div>
+    <!-- JAVASCRIPT YANG DI GUNAKAN -->
+    <script>
+      // PROSES SELAMAT DATANG
+      function pil_selamat_datang() {
+        if (document.getElementById("selamat_datang").value == "start") {
+          document.getElementById("form_selamat_datang").style.display = "none";
+          document.getElementById("kotak_peringatan").style.display = "block";
+          document.getElementById("judul").style.display = "block";
+          document.getElementById("kotak_utama").style.display = "block";
+          document.getElementById("form1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_1
+      function pil2_1() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form2_1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM SUSPEK
+      function pil_suspek() {
+        if (document.getElementById("ya2_1").value == "ya") {
+          document.getElementById("form2_1").style.display = "none";
+          document.getElementById("form_suspek").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM PERIKSA
+      function pil_periksa() {
+        if (document.getElementById("ya_suspek").value == "ya") {
+          document.getElementById("form_suspek").style.display = "none";
+          document.getElementById("form_periksa").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM LAYANAN
+      function pil_layanan() {
+        if (document.getElementById("tidak_suspek").value == "tidak") {
+          document.getElementById("form_suspek").style.display = "none";
+          document.getElementById("form_layanan").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM POSITIF
+      function pil_positif() {
+        if (document.getElementById("tidak_periksa").value == "tidak") {
+          document.getElementById("form_periksa").style.display = "none";
+          document.getElementById("form_positif").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM NEGATIF
+      function pil_negatif() {
+        if (document.getElementById("ya_periksa").value == "ya") {
+          document.getElementById("form_periksa").style.display = "none";
+          document.getElementById("form_negatif").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_1_2
+      function pil2_1_2() {
+        if (document.getElementById("tidak2_1").value == "tidak") {
+          document.getElementById("form2_1").style.display = "none";
+          document.getElementById("form2_1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2
+      function pil2_2() {
+        if (document.getElementById("tidak1").value == "tidak") {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1
+      function pil2_2_1() {
+        if (document.getElementById("ya2_2").value == "ya") {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form2_2_1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_2
+      function pil2_2_2() {
+        if (document.getElementById("tidak2_2").value == "tidak") {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form2_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_1
+      function pil2_2_1_1() {
+        if (document.getElementById("ya2_2_1").value == "ya") {
+          document.getElementById("form2_2_1").style.display = "none";
+          document.getElementById("form2_2_1_1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_2
+      function pil2_2_1_2() {
+        if (document.getElementById("tidak2_2_1").value == "tidak") {
+          document.getElementById("form2_2_1").style.display = "none";
+          document.getElementById("form2_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_1_1
+      function pil2_2_1_1_1() {
+        if (document.getElementById("ya2_2_1_1").value == "ya") {
+          document.getElementById("form2_2_1_1").style.display = "none";
+          document.getElementById("form2_2_1_1_1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_1_2
+      function pil2_2_1_1_2() {
+        if (document.getElementById("tidak2_2_1_1").value == "tidak") {
+          document.getElementById("form2_2_1_1").style.display = "none";
+          document.getElementById("form2_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM SUSPEK 2_2_1_1_1
+      function pil_suspek_2_2_1_1_1() {
+        if (document.getElementById("ya2_2_1_1_1").value == "ya") {
+          document.getElementById("form2_2_1_1_1").style.display = "none";
+          document.getElementById("form_suspek").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_1_1_2
+      function pil2_2_1_1_1_2() {
+        if (document.getElementById("tidak2_2_1_1_1").value == "tidak") {
+          document.getElementById("form2_2_1_1_1").style.display = "none";
+          document.getElementById("form2_2_2").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
