@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Deteksi Dini Penyakit</title>
+    <style>
+      ul.menu_horizontal li {
+        display: inline;
+        font-size: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+      }
+      .link_button {
+        border-radius: 20px;
+        background-color: white;
+        border: white;
+        color: black;
+        padding: 1px 20px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .kotak_navigasi {
+        width: 1265px;
+        height: 40px;
+        border-radius: 6px;
+        background: rgb(255, 153, 250);
+        text-align: center;
+        position: absolute;
+      }
+      .font_navigasi {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+        margin-top: 0.5%;
+        margin-left: 3.5%;
+        position: absolute;
+      }
+      .kotak_selamat_datang {
+        top: 9%;
+        text-align: center;
+        position: absolute;
+        width: 1265px;
+        height: 500px;
+        border-radius: 6px;
+        background: linear-gradient(rgb(255, 153, 250), white);
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 70px;
+        margin-left: 1%;
+      }
+      .font_tenang {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 33px;
+        margin-left: 1%;
+        top: 72%;
+        position: absolute;
+      }
+      .setting_garis_stetoskop_kiri {
+        left: 1%;
+        top: 88%;
+        position: absolute;
+        background: black;
+        border: black;
+      }
+      .setting_garis_stetoskop_kanan {
+        right: 1%;
+        top: 88%;
+        position: absolute;
+        background: black;
+        border: black;
+      }
+      .font_tanya_deteksi {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 28px;
+        margin-left: 1%;
+        left: 25%;
+        top: 95%;
+        position: absolute;
+      }
+      .settingan_tabel_deteksi {
+        top: 115%;
+        position: absolute;
+        text-align: center;
+      }
+      .font_ditabel {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 28px;
+        text-align: center;
+      }
+      .kotak_utm {
+        top: 180%;
+        text-align: center;
+        position: absolute;
+        width: 1265px;
+        height: 500px;
+        border-radius: 6px;
+        background: linear-gradient(white, rgb(186, 221, 255));
+      }
+      .font_utm {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 33px;
+        margin-left: 9%;
+      }
+      .kotak_copyright {
+        width: 1265px;
+        height: 40px;
+        border-radius: 6px;
+        background: rgb(186, 221, 255);
+        text-align: center;
+        top: 264%;
+        position: absolute;
+      }
+      .font_footer {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        margin-top: 0.5%;
+        left: 41%;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <!--BAGIAN NAVIGASI-->
+    <div class="kotak_navigasi">
+      <div class="font_navigasi">Kelompok X</div>
+      <ul class="menu_horizontal">
+        <li style="right: 36.5%; top: 10%; position: absolute">
+          <a href="#Home" class="link_button">Home</a>
+        </li>
+        <li style="right: 24.9%; top: 10%; position: absolute">
+          <a href="#Deteksi" class="link_button">Deteksi</a>
+        </li>
+        <li style="right: 15%; top: 10%; position: absolute">
+          <a href="#About" class="link_button">About</a>
+        </li>
+        <li style="right: 1%; top: 10%; position: absolute">
+          <a href="about_me.html" class="link_button">About me</a>
+        </li>
+      </ul>
+      <img src="img/LOGO UTM.png" height="32px" style="top: 4px; left: 9px; position: absolute" />
+    </div>
+    <!--BAGIAN KOTAK SELAMAT DATANG-->
+    <div class="kotak_selamat_datang" id="Home">
+      <div class="font_selamat_datang" style="top: 10%; position: absolute">Selamat Datang</div>
+      <div class="font_selamat_datang" style="top: 30%; position: absolute">Disistem Deteksi Dini</div>
+      <div class="font_selamat_datang" style="top: 50%; position: absolute">Penyakit.</div>
+      <div class="font_tenang">Hidup akan tenang saat tau keadaan.</div>
+      <img src="img/stetoskop2.png" width="500px" style="left: 54.5%; top: 1%; position: absolute" />
+      <hr class="setting_garis_stetoskop_kiri" width="675px" size="6px" />
+      <hr class="setting_garis_stetoskop_kanan" width="460px" size="6px" />
+    </div>
+    <!--BAGIAN DETEKSI-->
+    <div class="font_tanya_deteksi" id="Deteksi">
+      Penyakit apa yang ingin anda deteksi?
+      <hr width="500px" size="5px" style="background: black; border: black; left: 10%; position: absolute" />
+    </div>
+
+    <table width="1265" border="0" class="settingan_tabel_deteksi">
+      <tr>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="penyakit/menu_covid19.html"><img src="img/covid19.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/kaki.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/pusing.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/jantung.png" style="width: 130px" /></a>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="font_ditabel">Covid-19</div>
+          <br /><br />
+        </td>
+        <td>
+          <div class="font_ditabel">Kaki Gajah</div>
+          <br /><br />
+        </td>
+        <td>
+          <div class="font_ditabel">Nyeri Kepala</div>
+          <br /><br />
+        </td>
+        <td>
+          <div class="font_ditabel">Jantung</div>
+          <br /><br />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/paru_paru.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/darah.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="penyakit/hati(ikterus).html"><img src="img/hati.png" style="width: 130px" /></a>
+          </button>
+        </td>
+        <td>
+          <button style="background-color: white; border: white" type="button">
+            <a href="https://www.youtube.com/watch?v=08ome2iVgus"><img src="img/sendi.png" style="width: 130px" /></a>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td><div class="font_ditabel">TBC</div></td>
+        <td><div class="font_ditabel">Anemia</div></td>
+        <td><div class="font_ditabel">Hati</div></td>
+        <td><div class="font_ditabel">Sendi</div></td>
+      </tr>
+    </table>
+    <!--KOTAK UTM-->
+    <div class="kotak_utm" id="About">
+      <div class="font_utm" style="top: 33%; position: absolute">Sistem deteksi dini penyakit ini dibuat</div>
+      <div class="font_utm" style="top: 43%; position: absolute">untuk memenuhi tugas Dasar</div>
+      <div class="font_utm" style="top: 53%; position: absolute">Pemrograman Web, dan dibuat oleh</div>
+      <div class="font_utm" style="top: 63%; position: absolute">mahasiswa Universitas Trunojoyo Madura.</div>
+      <button style="background-color: white; border: white" type="button">
+        <a href="https://www.trunojoyo.ac.id/"><img src="img/LOGO UTM.png" width="250px" style="top: 25%; right: 9%; position: absolute" /></a>
+      </button>
+    </div>
+    <!--BAGIAN FOOTER-->
+    <div class="kotak_copyright">
+      <div class="font_footer">&COPY; By - Kelompok X</div>
+    </div>
+  </body>
+</html>
