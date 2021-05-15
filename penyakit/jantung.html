@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kecurigaan Penyakit Jantung Pada Kehamilan</title>
+    <!-- CSS YANG DI GUNAKAN -->
+    <style>
+      .font_judul {
+        font-weight: 600;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+      }
+      .font_utama {
+        font-weight: 400;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+      }
+      .tengah_teks {
+        text-align: center;
+      }
+      .tengah_kotak {
+        left: 35%;
+        position: absolute;
+      }
+      .kotak_judul {
+        width: 400px;
+        margin-top: -5.5%;
+        height: 80px;
+        border-radius: 10px;
+        background: rgb(255, 153, 250);
+      }
+      .kotak_selamat_datang {
+        top: 11%;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_utama {
+        top: 19%;
+        width: 400px;
+        height: 480px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .button_start {
+        top: 55%;
+        left: 40%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_yes {
+        top: 87%;
+        left: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_no {
+        top: 87%;
+        right: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .listdelate{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+      }
+      .kotak {
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .font_dimenu_jantung {
+        font-weight: bold;
+        color: black;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <br><br>
+    <!-- KOTAK SELAMAT DATANG -->
+    <div id="form_selamat_datang" style="display: block;">
+        <div class="kotak_selamat_datang tengah_kotak" >
+          <br><br><br><br><br><br>
+          <p class="font_selamat_datang tengah_teks">Selamat Datang Di Sistem Deteksi Dini Alur Kajian Kecurigaan Penyakit Jantung Pada Kehamilan</p>
+          <button id="selamat_datang" class="button_start font_utama" type="button" onclick="pil_selamat_datang()" value="start">Start</button>
+        </div>
+      </div>
+      <!--KOTAK MENU-->
+        <div class="kotak" id="kotak1" style="top: 20%; left: 30%; position: absolute; display: none;">
+          <button style="background: white; border: white; top: 35%; left: 30%; position: absolute;" type="button" onclick="kotak1('ya')">
+            <p class="font_dimenu_jantung">Gejala</p>
+          </button>
+        </div>
+      <div class="kotak" id="kotak2" style="top: 20%; left: 50%; position: absolute; display: none;">
+        <button style="background: white; border: white; top: 35%; left: 20%; position: absolute;" type="button" onclick="kotak2('ya')">
+          <p class="font_dimenu_jantung">Tanda Vital</p>
+        </button>
+      </div>
+      <div class="kotak" id="kotak3" style="top: 50%; left: 30%; position: absolute; display: none;">
+        <button style="background: white; border: white; top: 35%; left: 15%; position: absolute;" type="button" onclick="kotak3('ya')">
+          <p class="font_dimenu_jantung">Faktor Risiko</p>
+        </button>
+      </div>
+      <div class="kotak" id="kotak4" style="top: 50%; left: 50%; position: absolute; display: none;">
+        <button style="background: white; border: white; top: 35%; left: 1%; position: absolute;" type="button" onclick="kotak4('ya')">
+          <p class="font_dimenu_jantung">Pemeriksaan Fisik</p>
+        </button>
+      </div>
+      <!--Gejala-->
+       <!--Tampil Judul-->
+       <div id="judul_gejala" class="tengah_kotak" style="display: none;">
+        <div class="kotak_judul tengah_teks">
+          <div class="font_judul">Deteksi Dini Jantung dari Gejala</div>
+        </div>
+      </div>
+       <div id="Gejala" class="tengah_kotak kotak_utama" style="display: none;">
+        <p class="font_utama tengah_teks" style="font-weight: bold;">Gejala</p>
+        <ul class="listdelate">
+        <li class="font_utama">Kelas NYHA > 2</li>
+        <br>
+        <li class="font_utama">Mengarah Gagal Jantung</li>
+        <li class="font_utama">Sesak nafas</li>
+        <li class="font_utama">Orthopnea</li>
+        <li class="font_utama">Nafas cepat</li>
+        <li class="font_utama">Asama tak responsive dengan obat</li>
+        <br>
+        <li class="font_utama">Mengarah ke aritmia</li>
+        <li class="font_utama">Berdebar-debar</li>
+        <li class="font_utama">Pusing nggliyer / pingsan</li>
+        <br>
+        <li class="font_utama">Mengarah ke penyakit coroner</li>
+        <li class="font_utama">Nyeri dada</li>
+        <li class="font_utama">Sesak nafas</li>
+        </ul>
+        <button class="font_utama button_yes" type="button" onclick="Periksa()" id="ya1" value="ya">Next</button>
+      </div>
+      <!-- Periksa -->
+      <div id="Periksa" class="tengah_kotak kotak_utama" style="display: none;">
+        <ul class="listdelate">
+          <br><br>  
+          <li class="font_utama">Periksa : EKG dan BNP</li>
+          <li class="font_utama">Echocardiogram &/ ronsen thorax bila gagal jantung atau curiga penyakit katup atau nilai BNP meningkat</li>
+          <li class="font_utama">Holter monitor 24 jam, jika curiga aritmia</li>
+          <li class="font_utama">Rujuk ke kardialog</li>
+        </ul>
+        <button class="font_utama button_yes" type="button" onclick="Hasil()" id="ya1" value="ya">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="Gejalaa()" id="tidak1" value="tidak">Tidak</button>
+      </div>
+      <!-- Hasil -->
+      <div id="Hasil" class="tengah_kotak kotak_utama" style="display: none;" >
+        <ul class="listdelate">
+          <br><br>  
+          <li class="font_utama">Hasil</li>
+          <li class="font_utama">Abnormal</li>
+        </ul>
+        <button class="font_utama button_yes" type="button" onclick="Konsultasi()" id="ya1" value="ya">Next</button>
+      </div>
+      <!-- Gejalaa -->
+      <div id="Gejalaa" class="tengah_kotak kotak_utama" style="display: none;">
+        <p class="font_utama">Gejala >=1+ tanda vital  + factor risiko >=1 atau kombinasi >= 4</p>
+        <button class="font_utama button_yes" type="button" onclick="Konsultasi()" id="ya1" value="ya">Next</button>
+      </div>
+      <!-- Konsultasi -->
+      <div id="Konsultasi" class="tengah_kotak kotak_utama" style="display: none;">
+        <br><br>  
+        <p class="font_utama">Konsultasi ke fetomaternal / kardiolog</p>
+      </div>
+      <!-- Konsultasii -->
+      <div id="Konsultasii" class="tengah_kotak kotak_utama" style="display: none;">
+        <br><br>  
+        <p class="font_utama">Konsultasi ke fetomaternal / kardiolog</p>
+      </div>
+
+
+    <!-- Tanda Vital -->
+    <div id="Tanda Vital" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama tengah_teks" style="font-weight: bold;">Tanda Vital</p>
+      <ul class="listdelate">
+      <li class="font_utama">Denyut jantung >110x/m</li>
+      <li class="font_utama">TD sistolik > 140 mmHg </li>
+      <li class="font_utama">Laju nafas >24</li>
+      <li class="font_utama">Saturasi oksigen <95%</li>
+      </ul>
+      <button class="font_utama button_yes" type="button" onclick="Gejala2()" id="ya1" value="ya">Next</button>
+    </div>
+    <!-- Gejala2 -->
+    <div id="Gejala2" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama">Gejala >=1+ tanda vital  + factor risiko >=1 atau kombinasi >= 4</p>
+      <button class="font_utama button_yes" type="button" onclick="Konsultasi2()" id="ya1" value="ya">Next</button>
+      </div>
+    <!-- Konsultasi2 -->
+      <div id="Konsultasi2" class="tengah_kotak kotak_utama" style="display: none;">
+        <br><br>  
+        <p class="font_utama">Konsultasi ke fetomaternal / kardiolog</p>
+      </div>  
+    <!-- Faktor Risiko -->
+    <div id="Faktor Risiko" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama tengah_teks" style="font-weight: bold;">Faktor Risiko</p>
+      <ul class="listdelate">
+      <li class="font_utama">Riwayat PPcm</li>
+      <li class="font_utama">Umur > 40th</li>
+      <li class="font_utama">Obesitas ( BMI>35 )</li>
+      <li class="font_utama">Diabetes</li>
+      <li class="font_utama">Hipertensi</li>
+      <li class="font_utama">Pengguna obat terlarang</li>
+      <li class="font_utama">Riwayat kemotrapi</li>
+      </ul>
+      <button class="font_utama button_yes" type="button" onclick="Gejala3()" id="ya1" value="ya">Next</button>
+    </div>
+    <!-- Gejala3 -->
+    <div id="Gejala3" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama">Gejala >=1+ tanda vital  + factor risiko >=1 atau kombinasi >= 4</p>
+      <button class="font_utama button_yes" type="button" onclick="Konsultasi3()" id="ya1" value="ya">Next</button>
+      </div>
+    <!-- Konsultasi3 -->
+    <div id="Konsultasi3" class="tengah_kotak kotak_utama" style="display: none;">
+      <br><br>  
+      <p class="font_utama">Konsultasi ke fetomaternal / kardiolog</p>
+      </div>  
+    <!-- Pemeriksaan Fisik -->
+    <div id="Pemeriksaan Fisik" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama tengah_teks" style="font-weight: bold;">Pemeriksaan Fisik</p>
+      <ul class="listdelate">
+      <li class="font_utama">Jantung : Bising jantung</li>
+      <li class="font_utama">Paru : Ronkhi basal</li>
+      </ul>
+      <button class="font_utama button_yes" type="button" onclick="Gejala4()" id="ya1" value="ya">Next</button>
+    </div>
+    <!-- Gejala4 -->
+    <div id="Gejala4" class="tengah_kotak kotak_utama" style="display: none;">
+      <p class="font_utama">Gejala >=1+ tanda vital  + factor risiko >=1 atau kombinasi >= 4</p>
+      <button class="font_utama button_yes" type="button" onclick="Konsultasi4()" id="ya1" value="ya">Next</button>
+      </div>
+      <!-- Konsultasi4 -->
+    <div id="Konsultasi4" class="tengah_kotak kotak_utama" style="display: none;">
+      <br><br>  
+      <p class="font_utama">Konsultasi ke fetomaternal / kardiolog</p>
+      </div>  
+
+
+      
+    </div>
+    <!-- JAVASCRIPT YANG DI GUNAKAN -->
+    <script>
+      // PROSES SELAMAT DATANG
+      function pil_selamat_datang() {
+        if (document.getElementById("selamat_datang").value == "start") {
+          document.getElementById("form_selamat_datang").style.display = "none";
+          document.getElementById("kotak1").style.display = "block";
+          document.getElementById("kotak2").style.display = "block";
+          document.getElementById("kotak3").style.display = "block";
+          document.getElementById("kotak4").style.display = "block";
+        }
+      }
+      // PROSES PADA kotak 1
+      function kotak1(key) {
+        if (key == "ya") {
+          document.getElementById("kotak1").style.display = "none";
+          document.getElementById("kotak2").style.display = "none";
+          document.getElementById("kotak3").style.display = "none";
+          document.getElementById("kotak4").style.display = "none";
+          document.getElementById("Gejala").style.display = "block";
+          document.getElementById("judul_gejala").style.display = "block";
+        }
+      }
+      // PROSES PADA kotak 2
+      function kotak2(key) {
+        if (key == "ya") {
+          document.getElementById("kotak1").style.display = "none";
+          document.getElementById("kotak2").style.display = "none";
+          document.getElementById("kotak3").style.display = "none";
+          document.getElementById("kotak4").style.display = "none";
+          document.getElementById("Tanda Vital").style.display = "block";
+        }
+      }
+      // PROSES PADA kotak 3
+      function kotak3(key) {
+        if (key == "ya") {
+          document.getElementById("kotak1").style.display = "none";
+          document.getElementById("kotak2").style.display = "none";
+          document.getElementById("kotak3").style.display = "none";
+          document.getElementById("kotak4").style.display = "none";
+          document.getElementById("Faktor Risiko").style.display = "block";
+        }
+      }
+      // PROSES PADA kotak 4
+      function kotak4(key) {
+        if (key == "ya") {
+          document.getElementById("kotak1").style.display = "none";
+          document.getElementById("kotak2").style.display = "none";
+          document.getElementById("kotak3").style.display = "none";
+          document.getElementById("kotak4").style.display = "none";
+          document.getElementById("Pemeriksaan Fisik").style.display = "block";
+        }
+      }
+      // PROSES PADA periksa
+      function Periksa() {
+        if (document.getElementById("ya1").value == "ya"){
+          document.getElementById("Gejala").style.display = "none";
+          document.getElementById("Periksa").style.display = "block";
+        }
+      }        
+      // PROSES PADA hasil
+      function Hasil() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Periksa").style.display = "none";
+          document.getElementById("Hasil").style.display = "block";
+        }
+      }
+      // PROSES PADA Gejalaa
+      function Gejalaa() {
+        if (document.getElementById("tidak1").value == "tidak") {
+          document.getElementById("Periksa").style.display = "none";
+          document.getElementById("Gejalaa").style.display = "block";
+        }
+      }
+      // PROSES PADA konsultasi
+      function Konsultasi() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Hasil").style.display = "none";
+          document.getElementById("Konsultasi").style.display = "block";
+        }
+      }
+      // PROSES PADA konsultasii
+      function Konsultasii() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Gejalaa").style.display = "none";
+          document.getElementById("Konsultasii").style.display = "block";
+        }
+      }
+      // PROSES PADA Gejala2
+      function Gejala2() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Tanda Vital").style.display = "none";
+          document.getElementById("Gejala2").style.display = "block";
+        }
+      }
+      // PROSES PADA konsultasi2
+      function Konsultasi2() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Gejala2").style.display = "none";
+          document.getElementById("Konsultasi2").style.display = "block";
+        }
+      }
+      // PROSES PADA Gejala3
+      function Gejala3() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Faktor Risiko").style.display = "none";
+          document.getElementById("Gejala3").style.display = "block";
+        }
+      }
+      // PROSES PADA konsultasi3
+      function Konsultasi3() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Gejala3").style.display = "none";
+          document.getElementById("Konsultasi3").style.display = "block";
+        }
+      }
+      // PROSES PADA Gejala4
+      function Gejala4() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Pemeriksaan Fisik").style.display = "none";
+          document.getElementById("Gejala4").style.display = "block";
+        }
+      }
+      // PROSES PADA konsultasi4
+      function Konsultasi4() {
+        if (document.getElementById("ya1").value == "ya") {
+          document.getElementById("Gejala4").style.display = "none";
+          document.getElementById("Konsultasi4").style.display = "block";
+        }
+      }
+
+    </script>
+  </body>
+</html>
