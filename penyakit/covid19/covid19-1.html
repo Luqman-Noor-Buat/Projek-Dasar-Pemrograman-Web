@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apakah saya perlu kerumah sakit?</title>
+    <style>
+      body {
+        font-family: verdana;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(57, 180, 98);;
+      }
+      .container {
+        width: 900px;
+        margin: auto;
+        padding: 50px;
+      }
+      .search {
+        background-color: rgb(246, 252, 248);
+        border-radius: 50px;
+        padding: 20px;
+        margin: 10px 0;
+      }
+      .btn {
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 0px 10px;
+        width: 75px;
+      }
+      .search .box .btn{
+        background-color: rgb(60, 128, 122);
+      }
+      .search {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+      <div>
+		<center><h1><i>COVID-19</i></h1></center>
+		<center><P> SIAPA YANG PERLU MELAKUKAN PEMERIKSAAN KESEHATAN KE RUMAH SAKIT?</P></center>
+	  </div>
+	  
+    <div class="container">
+      <section class="search" id="search1" style="display: block">
+            <p>Pernah kontak dengan pasien COVID-19 (berada dalam satu ruangan yang sama/kontak dalam jarak 1 meter) ATAU pernah berkunjung ke negara/daerah endemis COVID-19 dalam 14 terakhir</p>
+          </li>
+        </ul>
+        <div class="box">
+          <button type="button" class="btn" onclick="answer1('no')">TIDAK</button>
+          <button type="button" class="btn" onclick="answer1('yes')">YA</button>
+        </div>
+      </section>
+
+      
+      <section class="search" id="search2">
+        <p>sedang atau pernah mengalami :</p>
+        <ul>
+          <li>demam(>38C)</li>
+          <li>pilek</li>
+          <li>batuk</li>
+		  <li>sesak napas</li>
+        </ul>
+        <div class="box">
+          <button type="button" class="btn" onclick="answer2('no')">TIDAK</button>
+          <button type="button" class="btn" onclick="answer2('yes')">YA</button>
+        </div>
+      </section>
+
+    
+      <section class="search" id="output1">
+	  <h3>Karantina diri Anda selama 14 hari terhitung setelah kontak/kunjungan</h3>
+	  <h3>Selama 14 hari karantina diri, Apah anda pernah mengalami???</h3>
+        <div class="box">
+          <button type="button" class="btn" onclick="answer1('klik')">KLIK</button>
+        </div>
+      </section>   
+   
+	  
+	  <section class="search" id="search6">
+        <p>Hubungi 199 EXT 9 atau periksakan diri ke rumah sakit rujukan COVID-19 di daerah Anda</p>
+      </section>
+
+      <section class="search" id="search4">
+        <p>sedang atau pernah mengalami :</p>
+        <ul>
+          <li>demam(>38C)</li>
+          <li>pilek</li>
+          <li>batuk</li>
+		  <li>sesak napas</li>
+        </ul>
+        <div class="box">
+          <button type="button" class="btn" onclick="answer3('no')">TIDAK</button>
+          <button type="button" class="btn" onclick="answer3('yes')">YA</button>
+        </div>
+      </section>
+
+      <section class="search" id="output2">
+        <p>Anda tidak perlu memeriksakan diri ke rumah sakit. Selalu jaga kesehatan Anda</p>
+      </section>
+
+    
+      <section class="search" id="output3">
+        <p>Periksakan diri ke dokter terdekat dan istirahat yang cukup</p>
+      </section>
+
+      <section class="search" id="search5">
+        <p>Hubungi 199 EXT 9 atau periksakan diri ke rumah sakit rujukan COVID-19 di daerah Anda</p>
+      </section>
+	  
+	  
+    </div>
+    <script>
+      function answer1(key) {
+  if (key == "yes") {
+    document.getElementById("search2").style.display = "block";
+    document.getElementById("search4").style.display = "none";
+  } else {
+    document.getElementById("search4").style.display = "block";
+    document.getElementById("search2").style.display = "none";
+  }
+}
+
+// search 2
+function answer2(key) {
+  if (key == "yes") {
+    document.getElementById("search5").style.display = "block";
+  } else {
+    document.getElementById("output1").style.display = "block";
+    document.getElementById("search5").style.display = "none";
+  }
+}
+// search 3
+function answer3(key) {
+  if (key == "yes") {
+    document.getElementById("output3").style.display = "block";
+    document.getElementById("search5").style.display = "block";
+    document.getElementById("output2").style.display = "none";
+  } else {
+    document.getElementById("output2").style.display = "block";
+    document.getElementById("output3").style.display = "none";
+    document.getElementById("search5").style.display = "none";
+  }
+}
+// search4
+function answer4(key) {
+  if (key == "positif") {
+    document.getElementById("search6").style.display = "block";
+  } else {
+    document.getElementById("search6").style.display = "block";
+  }
+}
+
+    </script>
+  </body>
+</html>
