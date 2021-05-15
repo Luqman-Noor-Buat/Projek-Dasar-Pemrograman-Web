@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penyakit Nyeri Pada Kepala</title>
+    <!-- CSS YANG DI GUNAKAN -->
+    <style>
+      .font_judul {
+        font-weight: 600;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+      }
+      .font_utama {
+        font-weight: 400;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+      }
+      .tengah_teks {
+        text-align: center;
+      }
+      .tengah_kotak {
+        left: 35%;
+        position: absolute;
+      }
+      .kotak_judul {
+        width: 400px;
+        margin-top: -5.5%;
+        height: 80px;
+        border-radius: 10px;
+        background: rgb(255, 153, 250);
+      }
+      .kotak_selamat_datang {
+        top: 11%;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_utama {
+        top: 19%;
+        width: 400px;
+        height: 480px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .button_start {
+        top: 55%;
+        left: 40%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_yes {
+        top: 87%;
+        left: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_no {
+        top: 87%;
+        right: 27%;
+        position: absolute;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <!-- KOTAK SELAMAT DATANG -->
+    <div id="form_selamat_datang" style="display: block">
+      <div class="kotak_selamat_datang tengah_kotak">
+        <br /><br /><br /><br /><br /><br /><br /><br />
+        <p class="font_selamat_datang tengah_teks">Selamat Datang Di Sistem Deteksi Penyakit Nyeri Pada Kepala</p>
+        <button id="selamat_datang" class="button_start font_utama" type="button" onclick="pil_selamat_datang()" value="start">Start</button>
+      </div>
+    </div>
+    <!--Tampil Judul-->
+    <div id="judul" class="tengah_kotak" style="display: none">
+      <div class="kotak_judul tengah_teks">
+        <div class="font_judul">Deteksi Penyakit Nyeri Pada Kepala</div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <!--Kotak Pernyataan-->
+    <div id="kotak_utama" class="tengah_kotak kotak_utama" style="display: none">
+      <!--FORM 1-->
+      <div id="form1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah Anda Pernah Mengalami Nyeri Kepala Pertama atau Terburuk?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil1('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil1('tidak')">Tidak</button>
+      </div>
+      <!--FORM 1_1-->
+      <div id="form1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah anda mengalami Trias Meningitis?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 1_2-->
+      <div id="form1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Penilaian Klinis Lengkap, Skrinning Tanda Bahaya, Bila ada rujuk SpS</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Apakah anda mengalami sakit kepala area sinus dan gejala nasal?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil6('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil6('tidak')">Tidak</button>
+        </div>
+     <!--FORM 6_1-->
+      <div id="form6_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Sinus akut</p>
+      </div>
+      <!--FORM 6_2-->
+      <div id="form6_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan Nyeri kepala primer</p>
+        <button class="font_utama button_yes" type="button" onclick="pil7('ya')">Ya</button>
+      </div>
+      <!--FORM 7_1-->
+      <div id="form7_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Migraine, TTH, Cluster, dan lain-lain</p>
+      </div>
+      <!--FORM 2_1-->
+      <div id="form2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Menggunakan Antibiotik IV + Silahkan Rujuk ke SpS</p>
+      </div>
+      <!--FORM 2_2-->
+      <div id="form2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah anda juga mengalami Hipertensi Intrakranial yang Akut?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil3('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil3('tidak')">Tidak</button>
+      </div>
+      <!--FORM 3_1--> 
+      <div id="form3_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Silahkan Rujuk SpS atau SpPD</p>
+      </div>
+      <!--FORM 3_2-->
+      <div id="form3_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah anda pernah mengalami nyeri kepala mendadak?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil4('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil4('tidak')">Tidak</button>
+      </div>
+      <!--FORM 4_1--> 
+      <div id="form4_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Rujuk SpS untuk CT Scan 24 jam pertama/LP</p>
+      </div>
+      <!--FORM 4_2-->
+      <div id="form4_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Curiga Glaukoma Akut(Nyeri Kepala Hebat + Visus Menurun)?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil5('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil5('tidak')">Tidak</button>
+      </div>
+      <!--FORM 5_1--> 
+      <div id="form5_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Rujuk SpM</p>
+      </div>
+    <!-- JAVASCRIPT YANG DI GUNAKAN -->
+    <script>
+      // PROSES SELAMAT DATANG
+      function pil_selamat_datang() {
+        if (document.getElementById("selamat_datang").value == "start") {
+          document.getElementById("form_selamat_datang").style.display = "none";
+          document.getElementById("judul").style.display = "block";
+          document.getElementById("kotak_utama").style.display = "block";
+          document.getElementById("form1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 1
+      function pil1(key) {
+        if (key == "ya") {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form1_1").style.display = "block";
+        } else {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2
+      function pil2(key) {
+        if (key == "ya") {
+          document.getElementById("form1_1").style.display = "none";
+          document.getElementById("form2_1").style.display = "block";
+        } else {
+          document.getElementById("form1_1").style.display = "none";
+          document.getElementById("form2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3
+      function pil3(key) {
+        if (key == "ya") {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form3_1").style.display = "block";
+        } else {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form3_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 4
+      function pil4(key) {
+        if (key == "ya") {
+          document.getElementById("form3_2").style.display = "none";
+          document.getElementById("form4_1").style.display = "block";
+        } else {
+          document.getElementById("form3_2").style.display = "none";
+          document.getElementById("form4_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 5
+      function pil5(key) {
+        if (key == "ya") {
+          document.getElementById("form4_2").style.display = "none";
+          document.getElementById("form5_1").style.display = "block";
+        } else {
+          document.getElementById("form4_2").style.display = "none";
+          document.getElementById("form1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 6
+      function pil6(key) {
+        if (key == "ya") {
+          document.getElementById("form1_2").style.display = "none";
+          document.getElementById("form6_1").style.display = "block";
+        } else {
+          document.getElementById("form1_2").style.display = "none";
+          document.getElementById("form6_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 7
+      function pil7(key) {
+        if (key == "ya") {
+          document.getElementById("form6_2").style.display = "none";
+          document.getElementById("form7_1").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
