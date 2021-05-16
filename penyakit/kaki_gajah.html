@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaki Gajah</title>
+    <!-- CSS YANG DI GUNAKAN -->
+    <style>
+      .font_judul {
+        font-weight: 600;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+      }
+      .font_utama {
+        font-weight: 400;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+      }
+      .tengah_teks {
+        text-align: center;
+      }
+      .tengah_kotak {
+        left: 35%;
+        position: absolute;
+      }
+      .kotak_judul {
+        width: 400px;
+        margin-top: -5.5%;
+        height: 80px;
+        border-radius: 10px;
+        background: rgb(255, 153, 250);
+      }
+      .kotak_selamat_datang {
+        top: 11%;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_utama {
+        top: 19%;
+        width: 400px;
+        height: 480px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .button_start {
+        top: 55%;
+        left: 40%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_yes {
+        top: 87%;
+        left: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_no {
+        top: 87%;
+        right: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_next {
+        top: 87%;
+        left: 73%;
+        position: absolute;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <!-- KOTAK SELAMAT DATANG -->
+    <div id="form_selamat_datang" style="display: block">
+      <div class="kotak_selamat_datang tengah_kotak">
+        <br /><br /><br /><br /><br /><br /><br /><br />
+        <p class="font_selamat_datang tengah_teks">Selamat Datang Di Sistem Deteksi Dini Penyakit Kaki Gajah</p>
+        <button id="selamat_datang" class="button_start font_utama" type="button" onclick="pil_selamat_datang()" value="start">Start</button>
+      </div>
+    </div>
+    <!--Tampil Judul-->
+    <div id="judul" class="tengah_kotak" style="display: none">
+      <div class="kotak_judul tengah_teks">
+        <div class="font_judul">Deteksi Dini Penyakit Kaki Gajah</div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <!--Kotak Pernyataan-->
+    <div id="kotak_utama" class="tengah_kotak kotak_utama" style="display: none">
+      <!--FORM 1-->
+      <div id="form1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Fluktasi pembengkakan yang anda alami kemungkinan dipengaruhi oleh batuk/mengejan</p>
+        <button class="font_utama button_next" type="button" onclick="pil1('ya')">Next</button>
+      </div>
+      <!--FORM 2-->
+      <div id="form2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 40%">Pembengkakan terjadi pada skrotum unilateral atau bilateral?. Jika terjadi pada skrotum unilateral klik "Ya", jika terjadi pada skrotum bilateral klik "Tidak".</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 2_1-->
+      <div id="form2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan BUKAN HIDROKEL, kemungkinan HERNIA</p>
+      </div>
+      <!--FORM 2_2-->
+      <div id="form2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah terdapat cairan pada testis saat anda melakukan pemeriksaan cairan pada testis?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2_2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2_2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 2_2_1-->
+      <div id="form2_2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Lakukanlah tes transilium dan jika hasilnya POSITIF klik "Ya", tetapi jika NEGATIF silahkan klik "Tidak".</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2_2_1('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2_2_1('tidak')">Tidak</button>
+      </div>
+      <!--FORM 2_2_1_1-->
+      <div id="form2_2_1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%"> Anda kemungkinan menderita HIDROKEL. Jika dengan LIMFEDEMA silahkan klik "Ya". Tetapi jika TANPA LIMFEDEMA silahkan klik "Tidak"</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2_2_1_1('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2_2_1_1('tidak')">Tidak</button>
+      </div>
+      <!--FORM 2_2_1_1_1-->
+      <div id="form2_2_1_1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Anda harus melakukan HIDROKOLEKTOMI minimal di Faskes Tingkat III</p>
+      </div>
+      <!--FORM 2_2_1_1_2-->
+      <div id="form2_2_1_1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Anda harus melakukan HIDROKOLEKTOMI minimal di Faskes Tingkat II</p>
+      </div>
+      <!--FORM 2_2_1_2-->
+      <div id="form2_2_1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan anda menderita PYOCELE dan/ HAEMATOELE. Anda membutuhkan pemeriksaan lanjutan.</p>
+      </div>
+      <!--FORM 2_2_2-->
+      <div id="form2_2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan BUKAN HIDROKEL dan membutuhkan pemeriksaan lanjutan.</p>
+      </div>
+
+    <!-- JAVASCRIPT YANG DI GUNAKAN -->
+    <script>
+        // PROSES SELAMAT DATANG
+        function pil_selamat_datang() {
+        if (document.getElementById("selamat_datang").value == "start") {
+          document.getElementById("form_selamat_datang").style.display = "none";
+          document.getElementById("judul").style.display = "block";
+          document.getElementById("kotak_utama").style.display = "block";
+          document.getElementById("form1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 1
+      function pil1(key) {
+        if (key == "ya") {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2
+      function pil2(key) {
+        if (key == "ya") {
+          document.getElementById("form2").style.display = "none";
+          document.getElementById("form2_1").style.display = "block";
+        } else {
+          document.getElementById("form2").style.display = "none";
+          document.getElementById("form2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2
+      function pil2_2(key) {
+        if (key == "ya") {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form2_2_1").style.display = "block";
+        } else {
+          document.getElementById("form2_2").style.display = "none";
+          document.getElementById("form2_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1
+      function pil2_2_1(key) {
+        if (key == "ya") {
+          document.getElementById("form2_2_1").style.display = "none";
+          document.getElementById("form2_2_1_1").style.display = "block";
+        } else {
+          document.getElementById("form2_2_1").style.display = "none";
+          document.getElementById("form2_2_1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2_2_1_1
+      function pil2_2_1_1(key) {
+        if (key == "ya") {
+          document.getElementById("form2_2_1_1").style.display = "none";
+          document.getElementById("form2_2_1_1_1").style.display = "block";
+        } else {
+          document.getElementById("form2_2_1_1").style.display = "none";
+          document.getElementById("form2_2_1_1_2").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
