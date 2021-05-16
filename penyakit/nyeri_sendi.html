@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyeri Sendi</title>
+    <!-- CSS YANG DI GUNAKAN -->
+    <style>
+      .font_judul {
+        font-weight: 600;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 30px;
+      }
+      .font_utama {
+        font-weight: 400;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+      }
+      .font_selamat_datang {
+        font-weight: bold;
+        color: darkblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 25px;
+      }
+      .tengah_teks {
+        text-align: center;
+      }
+      .tengah_kotak {
+        left: 35%;
+        position: absolute;
+      }
+      .kotak_judul {
+        width: 400px;
+        margin-top: -5.5%;
+        height: 80px;
+        border-radius: 10px;
+        background: rgb(255, 153, 250);
+      }
+      .kotak_selamat_datang {
+        top: 11%;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .kotak_utama {
+        top: 19%;
+        width: 400px;
+        height: 480px;
+        border-radius: 20px;
+        background: linear-gradient(rgb(255, 153, 250), rgb(186, 221, 255));
+      }
+      .button_start {
+        top: 55%;
+        left: 40%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_yes {
+        top: 87%;
+        left: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_no {
+        top: 87%;
+        right: 27%;
+        position: absolute;
+        width: 80px;
+      }
+      .button_next {
+        top: 77%;
+        left: 73%;
+        position: absolute;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <br /><br />
+    <!-- KOTAK SELAMAT DATANG -->
+    <div id="form_selamat_datang" style="display: block">
+      <div class="kotak_selamat_datang tengah_kotak">
+        <br /><br /><br /><br /><br /><br /><br /><br />
+        <p class="font_selamat_datang tengah_teks">Selamat Datang Di Sistem Deteksi Dini Penyakit Nyeri Sendi</p>
+        <button id="selamat_datang" class="button_start font_utama" type="button" onclick="pil_selamat_datang()" value="start">Start</button>
+      </div>
+    </div>
+    <!--Tampil Judul-->
+    <div id="judul" class="tengah_kotak" style="display: none">
+      <div class="kotak_judul tengah_teks">
+        <div class="font_judul">Deteksi Dini Penyakit Nyeri Sendi</div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <!--Kotak Pernyataan-->
+    <div id="kotak_utama" class="tengah_kotak kotak_utama" style="display: none">
+      <!--FORM 1-->
+      <div id="form1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah anda mengalami nyeri sendi?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil1('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil1('tidak')">Tidak</button>
+      </div>
+      <!--FORM 1_1-->
+      <div id="form1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah artikuler?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 1_2-->
+      <div id="form1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Terimakasih telah menggunakan layanan kami :)</p>
+      </div>
+      <!--FORM 2_1-->
+      <div id="form2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Keluhan lebih dari 6 kali dalam satu minggu?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil3('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil3('tidak')">Tidak</button>
+      </div>
+      <!--FORM 2_2-->
+      <div id="form2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kondisi non artikuler, pertimbangkan :</p>
+        <ul class="font_utama" style="font-weight: bold; margin-top: 0%">
+            <li>Trauma/fraktur</li>
+            <li>Tendinitis</li>
+            <li>Bursitis</li>
+            <li>Fibromialgia</li>
+            <li>Polimialgia reumatika</li>
+        </ul>
+      </div>
+      <!--FORM 3_1-->
+      <div id="form3_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan penyakit sendi anda telah</p>
+        <p class="font_judul tengah_teks" style="font-weight: bold; margin-top: 0%">AKUT</p>
+        <button class="font_utama button_next" type="button" onclick="pil3_1('ya')">Next</button>
+      </div>
+      <!--FORM 3_1_1-->
+      <div id="form3_1_1" style="display: none">
+          <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Presentasi awal adalah artritis KRONIK</p>
+          <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Tetapi mungkin saja telah artritis AKUT, yaitu :</p>
+          <ul class="font_utama" style="font-weight: bold; margin-top: 0%">
+            <li>Artritis Septik</li>
+            <li>Artritis Reaktif</li>
+            <li>Gout</li>
+            <li>Psuedogout</li>
+          </ul>
+        </div>
+      <!--FORM 3_2-->
+      <div id="form3_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan penyakit sendi anda telah</p>
+        <p class="font_judul tengah_teks" style="font-weight: bold; margin-top: 0%">KRONIK</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Apakah terdapat inflamasi?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil3_2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil3_2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 3_2_1-->
+      <div id="form3_2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Apakah kemungkinan ARTRITIS INFLAMASI KRONIK?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil3_2_1('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil3_2_1('tidak')">Tidak</button>
+      </div>
+      <!--FORM 3_2_1_1-->
+      <div id="form3_2_1_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan sendi yang terlibat adalah 1-3 sendi.</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Kemungkinan anda mengalami :</p>
+          <ul class="font_utama" style="font-weight: bold; margin-top: 0%">
+            <li>Juvenile Rheumatoid</li>
+            <li>Arthritis</li>
+            <li>Artritis Psoriatik</li>
+            <li>Artritis Reaktid</li>
+          </ul>
+      </div>
+      <!--FORM 3_2_1_2-->
+      <div id="form3_2_1_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan sendi yang terlibat adalah > 3.</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Apakah simetris?</p>
+        <button class="font_utama button_yes" type="button" onclick="form3_2_1_2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="form3_2_1_2('tidak')">Tidak</button>
+      </div>
+      <!-- FORM KETERLIBATAN -->
+      <div id="keterlibatan" style="display: none;">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan simetris</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Apakah keterlibatan sendi PIP, MCP, MTP ?</p>
+        <button class="font_utama button_yes" type="button" onclick="keterlibatan('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="keterlibatan('tidak')">Tidak</button>
+      </div>
+      <!-- REUMATOID -->
+      <div id="reumatoid" style="display: none;">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Atritis reumatoid</p>
+      </div>
+      <!-- SLE -->
+      <div id="sle" style="display: none;">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">SLE</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Skieroderma</p>
+      </div>
+      <!-- ARTRITIS -->
+      <div id="artritis" style="display: none;">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Artritis psoriatik</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Artritis reaktif</p>
+      </div>
+      <!--FORM 3_2_2-->
+      <div id="form3_2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Kemungkinan ARTRITIS NON INFLAMASI KRONIK</p>
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 0%">Apakah ada keterlibatan sendi DIP, CMC1, Panggul, Lutut?</p>
+        <button class="font_utama button_yes" type="button" onclick="pil3_2_2('ya')">Ya</button>
+        <button class="font_utama button_no" type="button" onclick="pil3_2_2('tidak')">Tidak</button>
+      </div>
+      <!--FORM 3_2_2_1-->
+      <div id="form3_2_2_1" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Anda mungkin mengalami OSTEOARTRITIS</p>
+      </div>
+      <!--FORM 3_2_2_2-->
+      <div id="form3_2_2_2" style="display: none">
+        <p class="font_utama tengah_teks" style="font-weight: bold; margin-top: 50%">Anda mungkin mengalami OSTEONEKROSIS CHARCOT ARTRITIS</p>
+      </div>
+      
+    <!-- JAVASCRIPT YANG DI GUNAKAN -->
+    <script>
+        // PROSES SELAMAT DATANG
+        function pil_selamat_datang() {
+        if (document.getElementById("selamat_datang").value == "start") {
+          document.getElementById("form_selamat_datang").style.display = "none";
+          document.getElementById("judul").style.display = "block";
+          document.getElementById("kotak_utama").style.display = "block";
+          document.getElementById("form1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 1
+      function pil1(key) {
+        if (key == "ya") {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form1_1").style.display = "block";
+        } else {
+          document.getElementById("form1").style.display = "none";
+          document.getElementById("form1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 2
+      function pil2(key) {
+        if (key == "ya") {
+          document.getElementById("form1_1").style.display = "none";
+          document.getElementById("form2_1").style.display = "block";
+        } else {
+          document.getElementById("form1_1").style.display = "none";
+          document.getElementById("form2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3
+      function pil3(key) {
+        if (key == "ya") {
+          document.getElementById("form2_1").style.display = "none";
+          document.getElementById("form3_1").style.display = "block";
+        } else {
+          document.getElementById("form2_1").style.display = "none";
+          document.getElementById("form3_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3_1
+      function pil3_1(key) {
+        if (key == "ya") {
+          document.getElementById("form3_1").style.display = "none";
+          document.getElementById("form3_1_1").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3_2
+      function pil3_2(key) {
+        if (key == "ya") {
+          document.getElementById("form3_2").style.display = "none";
+          document.getElementById("form3_2_1").style.display = "block";
+        } else {
+          document.getElementById("form3_2").style.display = "none";
+          document.getElementById("form3_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3_2_1
+      function pil3_2_1(key) {
+        if (key == "ya") {
+          document.getElementById("form3_2_1").style.display = "none";
+          document.getElementById("form3_2_1_1").style.display = "block";
+        } else {
+          document.getElementById("form3_2_1").style.display = "none";
+          document.getElementById("form3_2_1_2").style.display = "block";
+        }
+      }
+      // PROSES PADA FORM 3_2_2
+      function pil3_2_2(key) {
+        if (key == "ya") {
+          document.getElementById("form3_2_2").style.display = "none";
+          document.getElementById("form3_2_2_1").style.display = "block";
+        } else {
+          document.getElementById("form3_2_2").style.display = "none";
+          document.getElementById("form3_2_2_2").style.display = "block";
+        }
+      }
+      // PROSES PADA KETERLIBATAN
+      function form3_2_1_2(key) {
+        if (key == "ya") {
+          document.getElementById("form3_2_1_2").style.display = "none";
+          document.getElementById("keterlibatan").style.display = "block";
+        } else {
+          document.getElementById("form3_2_1_2").style.display = "none";
+          document.getElementById("artritis").style.display = "block";
+        }
+      }
+      // PROSES PADA REUMATOID
+      function keterlibatan(key) {
+        if (key == "ya") {
+          document.getElementById("keterlibatan").style.display = "none";
+          document.getElementById("reumatoid").style.display = "block";
+        } else {
+          document.getElementById("keterlibatan").style.display = "none";
+          document.getElementById("sle").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
